@@ -1,0 +1,1 @@
+pBox = document.querySelector('.pitcher-box');

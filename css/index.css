@@ -208,3 +208,16 @@ p {
   text-align: center;
   padding-top: 10px;
 }
+.pitcher-box .name {
+  color: green;
+}
+.pitcher-box .pitcher-stats {
+  height: 50%;
+  border: 1px solid black;
+  font-size: 1rem;
+  width: 100%;
+}
+.pitcher-box .pitcher-stats th {
+  text-align: left;
+  font-weight: bold;
+}
