@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: 0 */
+
 class Person {
   constructor(attributes) {
     this.firstName = attributes.firstName;
@@ -132,6 +134,3 @@ const mookie = new Batter({
   hbp: 8,
   bStrikeouts: 86,
 });
-
-
-
