@@ -203,14 +203,12 @@ p {
   justify-content: space-between;
   height: 800px;
 }
-.container .game-section div {
-  width: 33%;
-  border: 1px solid blue;
-  height: 100%;
-}
 .container .game-section div h2 {
   text-align: center;
   padding-top: 10px;
+}
+.pitcher-box {
+  width: 33%;
 }
 .pitcher-box .name {
   color: green;
@@ -235,6 +233,9 @@ p {
   vertical-align: middle;
   text-align: right;
 }
+.batter-box {
+  width: 33%;
+}
 .batter-box .name {
   color: green;
 }
@@ -257,4 +258,33 @@ p {
 .batter-box .batter-stats tr td {
   vertical-align: middle;
   text-align: right;
+}
+.at-bat-box {
+  background-color: orangered;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.at-bat-box h2 {
+  border: 1px solid black;
+}
+.at-bat-box .balls-strikes-outs {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  padding-top: 10px;
+}
+.at-bat-box .balls-strikes-outs span {
+  color: white;
+  font-size: 1rem;
+  padding-right: 10px;
+  border: 1px solid blue;
+}
+.at-bat-box .controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.at-bat-box .controls button {
+  margin: 0 10px;
 }

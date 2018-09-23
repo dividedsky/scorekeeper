@@ -17,7 +17,7 @@ class Person {
 class Player extends Person {
   constructor(attributes) {
     super(attributes);
-    this._team = attributes.team;
+    this.team = attributes.team;
     this.position = attributes.position;
     this.number = attributes.number;
     this.cg = {};

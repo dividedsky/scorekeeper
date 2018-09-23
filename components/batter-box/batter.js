@@ -1,5 +1,7 @@
 /* global document, mookie */
 const batter = mookie;
+mookie.cg.hits = 3;
+mookie.cg.atBats = 4;
 
 function updateBatterStats() {
   const bBox = document.querySelector('.batter-box');
@@ -10,4 +12,4 @@ function updateBatterStats() {
   bBox.querySelector('.current-game-display').innerText = `${batter.cg.hits} / ${batter.cg.atBats}`;
 }
 
-updateBatterStats()
+updateBatterStats();
