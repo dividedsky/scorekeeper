@@ -48,9 +48,14 @@ class Pitcher extends Player {
     return `${this.wins}-${this.losses}`;
   }
 
+  get inningsPitched() {
+    return this.inningsPitched.join('.');
+  }
+
   get era() {
     // to convert baseball decimal: Math.floor(inningsPitches) + (thirds % 1)
-    return (9 * this.earnedRuns / this.inningsPitched).toFixed(2);
+    const realIP = this.inningsPitched[0] + (this.inningsPitched[1] * 1/3)
+    return (9 * this.earnedRuns / realIP).toFixed(2);
   }
 
   get whip() {
@@ -61,7 +66,6 @@ class Pitcher extends Player {
 class Batter extends Player {
   constructor(attributes) {
     super(attributes);
-    this.plateApps = attributes.plateApps;
     this.atBats = attributes.atBats;
     this.runs = attributes.runs;
     this.hits = attributes.hits;
@@ -74,6 +78,8 @@ class Batter extends Player {
     this.bbs = attributes.bbs;
     this.hbp = attributes.hbp;
     this.bStrikeouts = attributes.bStrikeouts;
+    this.sacFlies = attributes.sacFlies;
+    this.sacHits = attributes.sacHits;
   }
 
   // getters
@@ -83,6 +89,10 @@ class Batter extends Player {
 
   get obp() {
     return ((this.hits + this.bbs + this.hbp) / this.plateApps).toFixed(3).slice(1);
+  }
+
+  get plateApps() {
+    return this.atBats + this.bbs + this.hbp + this.
   }
 }
 
@@ -120,7 +130,6 @@ const mookie = new Batter({
   age: 25,
   position: 'RF',
   team: 'Boston Red Sox',
-  plateApps: 593,
   atBats: 502,
   runs: 121,
   hits: 170,
@@ -133,4 +142,6 @@ const mookie = new Batter({
   bbs: 78,
   hbp: 8,
   bStrikeouts: 86,
+  sacHits: 0,
+  sacFlies: 5,
 });
