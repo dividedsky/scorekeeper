@@ -153,12 +153,12 @@ h2 {
   font-weight: 500;
 }
 p {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 .container {
   width: 1500px;
   margin: 0 auto;
-  border: 1px solid red;
+  border: 2px dashed red;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -168,6 +168,10 @@ p {
   border: 1px solid black;
   text-align: center;
   font-size: 3.5rem;
+}
+.container p {
+  margin: 0 auto;
+  font-size: 1rem;
 }
 .container .scoreboard {
   width: 100%;
@@ -202,7 +206,7 @@ p {
 .container .game-section div {
   width: 33%;
   border: 1px solid blue;
-  height: 400px;
+  height: 100%;
 }
 .container .game-section div h2 {
   text-align: center;
@@ -215,9 +219,42 @@ p {
   height: 50%;
   border: 1px solid black;
   font-size: 1rem;
-  width: 100%;
+  width: 85%;
+  margin: 0 auto;
 }
-.pitcher-box .pitcher-stats th {
+.pitcher-box .pitcher-stats tr {
+  border: 1px solid green;
+  vertical-align: middle;
+}
+.pitcher-box .pitcher-stats tr th {
   text-align: left;
   font-weight: bold;
+  vertical-align: middle;
+}
+.pitcher-box .pitcher-stats tr td {
+  vertical-align: middle;
+  text-align: right;
+}
+.batter-box .name {
+  color: green;
+}
+.batter-box .batter-stats {
+  height: 50%;
+  border: 1px solid black;
+  font-size: 1rem;
+  width: 85%;
+  margin: 0 auto;
+}
+.batter-box .batter-stats tr {
+  border: 1px solid green;
+  vertical-align: middle;
+}
+.batter-box .batter-stats tr th {
+  text-align: left;
+  font-weight: bold;
+  vertical-align: middle;
+}
+.batter-box .batter-stats tr td {
+  vertical-align: middle;
+  text-align: right;
 }

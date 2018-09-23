@@ -40,7 +40,7 @@ class Pitcher extends Player {
     this.strikeouts = attributes.strikeouts;
     this.hbp = attributes.hbp;
   }
-  
+
   // getters
   get record() {
     return `${this.wins}-${this.losses}`;
@@ -54,7 +54,6 @@ class Pitcher extends Player {
   get whip() {
     return ((this.hitsAllowed + this.bbAllowed) / this.inningsPitched).toFixed(2);
   }
-
 }
 
 class Batter extends Player {
@@ -87,17 +86,17 @@ class Batter extends Player {
 
 // test objects
 const cora = new Person({
-  firstName: "Alex",
-  lastName: "Cora",
-  age: 42
+  firstName: 'Alex',
+  lastName: 'Cora',
+  age: 42,
 });
 
 const sale = new Pitcher({
-  firstName: "Chris",
-  lastName: "Sale",
+  firstName: 'Chris',
+  lastName: 'Sale',
   age: 29,
-  position: "SP",
-  team: "Boston Red Sox",
+  position: 'SP',
+  team: 'Boston Red Sox',
   inningsPitched: 153.1,
   wins: 12,
   losses: 4,
@@ -114,11 +113,11 @@ const sale = new Pitcher({
 });
 
 const mookie = new Batter({
-  firstName: "Mookie",
-  lastName: "Betts",
+  firstName: 'Mookie',
+  lastName: 'Betts',
   age: 25,
-  position: "RF",
-  team: "Boston Red Sox",
+  position: 'RF',
+  team: 'Boston Red Sox',
   plateApps: 593,
   atBats: 502,
   runs: 121,
@@ -132,13 +131,7 @@ const mookie = new Batter({
   bbs: 78,
   hbp: 8,
   bStrikeouts: 86,
-})
+});
 
-const pitcher = sale;
-const batter = mookie;
 
-const pitcherBox = document.querySelector(".pitcher-box");
-const batterBox = document.querySelector(".batter-box");
 
-pitcherBox.querySelector('.name').innerText = `${pitcher.name}`;
-batterBox.querySelector('.name').innerText = `${batter.name}`;
