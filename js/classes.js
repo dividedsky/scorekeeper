@@ -48,9 +48,9 @@ class Pitcher extends Player {
     return `${this.wins}-${this.losses}`;
   }
 
-  get inningsPitched() {
-    return this.inningsPitched.join('.');
-  }
+  // get inningsPitched() {
+    // return this.inningsPitched.join('.');
+  // }
 
   get era() {
     // to convert baseball decimal: Math.floor(inningsPitches) + (thirds % 1)
@@ -92,7 +92,7 @@ class Batter extends Player {
   }
 
   get plateApps() {
-    return this.atBats + this.bbs + this.hbp + this.
+    return this.atBats + this.bbs + this.hbp + this.sacFlies + this.sacHits;
   }
 }
 
@@ -109,7 +109,7 @@ const sale = new Pitcher({
   age: 29,
   position: 'SP',
   team: 'Boston Red Sox',
-  inningsPitched: 153.1,
+  inningsPitched: [153, 1],
   wins: 12,
   losses: 4,
   earnedRuns: 34,

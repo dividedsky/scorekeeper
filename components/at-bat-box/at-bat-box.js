@@ -4,34 +4,63 @@ class AtBat {
     this.batter = batter;
     this.strikes = 0;
     this.balls = 0;
+
+    const strikeButton = document.querySelector('.strike-button');
+    const ballButton = document.querySelector('.ball-button');
+    strikeButton.addEventListener('click', this.strike);
+    ballButton.addEventListener('click', this.ball);
   }
 
   strike() {
     this.strikes += 1;
     if (this.strikes === 3) {
       this.strikeout();
-      return `${this.pitcher.name} strikes out ${this.batter.name}`;
     }
   }
 
   ball() {
     this.balls += 1;
     if (this.balls === 4) {
-      return `${this.pitcher.name} walks ${this.batter.name}`;
+      this.walk();
     }
   }
 
-  this.strikeout() {
+  strikeout() {
     this.pitcher.strikeouts += 1;
     this.pitcher.inningsPitches[1]++;
 
     this.batter.atBats++;
     this.batter.strikeouts++;
+    return `${this.pitcher.name} strikes out ${this.batter.name}`;
   }
 
-  this.walk() {
+  walk() {
     this.pitcher.bbAllowed++;
-
     this.batter.bbs++;
+    return `${this.pitcher.name} walks ${this.batter.name}`;
+  }
+
+  hit(bases) {
+    this.picher.hitsAllowed++;
+    this.batter.hits++;
+
+    if (bases === 4) {
+      this.pitcher.hrAllowed++;
+      this.batter.homeruns++;
+    }
+
+    if (bases === 3) {
+      this.batter.triples++
+    }
+
+    if (bases === 2) {
+      this.batter.doubles++;
+    }
+
+    // here call function to move runners on basepaths
+    console.log(`${this.batter} hits for ${bases} bases`);
   }
 }
+
+
+a = new AtBat(sale, mookie);
