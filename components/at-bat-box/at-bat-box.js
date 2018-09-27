@@ -27,7 +27,7 @@ class AtBat {
 
   strikeout() {
     this.pitcher.strikeouts += 1;
-    this.pitcher.inningsPitches[1]++;
+    this.pitcher.inningsPitched[1]++;
 
     this.batter.atBats++;
     this.batter.strikeouts++;
@@ -60,7 +60,18 @@ class AtBat {
     // here call function to move runners on basepaths
     console.log(`${this.batter} hits for ${bases} bases`);
   }
+
+  updateScoreboard() {
+    const strikeDisplay = document.querySelector('.strikes-display');
+    const ballDisplay = document.querySelector('.balls-display');
+    const outsDisplay = document.querySelector('.outs-display');
+
+    strikeDisplay.innerText = this.strikes;
+    ballDisplay.innerText = this.balls;
+    outsDisplay.innerText = this.outs;
+  }
 }
 
+// function to display balls and strikes
 
 a = new AtBat(sale, mookie);
