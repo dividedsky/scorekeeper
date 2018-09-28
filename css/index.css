@@ -135,6 +135,7 @@ html {
 }
 body {
   height: 100%;
+  font-size: 1.6rem;
 }
 h1,
 h2,
@@ -153,7 +154,7 @@ h2 {
   font-weight: 500;
 }
 p {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 }
 .container {
   width: 1500px;
@@ -172,7 +173,7 @@ p {
 }
 .container p {
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 .container .scoreboard {
   width: 100%;

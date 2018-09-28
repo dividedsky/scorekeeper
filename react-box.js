@@ -51,3 +51,66 @@ var element = React.createElement(
 );
 
 ReactDOM.render(element, box);
+
+// ReactDOM.render(
+// <h1>Hello, world</h1>,
+// box
+// );
+var newEl = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    'Hello, ',
+    name,
+    '!'
+  ),
+  React.createElement(
+    'h2',
+    null,
+    'I am writing html basically inside of js!'
+  ),
+  React.createElement(
+    'p',
+    null,
+    'that\'s the power of jsx, I suppose'
+  )
+);
+
+ReactDOM.render(newEl, box);
+
+var rootEl = React.createElement('div', { id: 'root' });
+
+var root = document.getElementsByClassName('root')[0];
+console.log(root);
+
+/* function tick() {
+  const start = new Date().toLocaleTimeString();
+  const clockEl = (
+    <div>
+<p>
+      {new Date().toLocaleTimeString() - start}
+</p>
+      <h3>It is </h3>
+      <p>{new Date().toLocaleTimeString()}.</p>
+    </div>
+  );
+ReactDOM.render(clockEl, root);
+
+} */
+
+// setInterval(tick, 1000);
+
+function closureClock() {
+  var start = 0;
+
+  function tick() {
+    start += 1;
+    return start;
+  }
+  return tick();
+}
+
+var myClock = closureClock;
+myClock();
