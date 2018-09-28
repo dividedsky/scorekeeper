@@ -1,18 +1,24 @@
+/* global sale, mookie, document */
 class AtBat {
-  constructor(pitcher, batter) {
+  constructor(pitcher, batter, element) {
+    this.element = element;
     this.pitcher = pitcher;
     this.batter = batter;
     this.strikes = 0;
     this.balls = 0;
+    this.outs = 0;
+    this.updateScoreboard();
 
-    const strikeButton = document.querySelector('.strike-button');
-    const ballButton = document.querySelector('.ball-button');
-    strikeButton.addEventListener('click', this.strike);
-    ballButton.addEventListener('click', this.ball);
+    const strikeButton = this.element.querySelector('.strike-button');
+    const ballButton = this.element.querySelector('.ball-button');
+    strikeButton.addEventListener('click', event => this.strike(event));
+    ballButton.addEventListener('click', event => this.ball(event));
   }
 
-  strike() {
+  strike(event) {
     this.strikes += 1;
+    console.log(`${this.pitcher.name} throws a strike to ${this.batter.name}`);
+    this.updateScoreboard();
     if (this.strikes === 3) {
       this.strikeout();
     }
@@ -20,14 +26,20 @@ class AtBat {
 
   ball() {
     this.balls += 1;
+    console.log(`${this.batter.name} takes a ball from ${this.pitcher.name}`);
+    this.updateScoreboard();
     if (this.balls === 4) {
       this.walk();
     }
   }
 
   strikeout() {
+    console.log(`${this.pitcher.name} strikes out ${this.batter.name}`);
+    this.outs++;
     this.pitcher.strikeouts += 1;
     this.pitcher.inningsPitched[1]++;
+    this.resetCount();
+    this.updateScoreboard();
 
     this.batter.atBats++;
     this.batter.strikeouts++;
@@ -35,6 +47,8 @@ class AtBat {
   }
 
   walk() {
+    this.resetCount();
+    this.updateScoreboard();
     this.pitcher.bbAllowed++;
     this.batter.bbs++;
     return `${this.pitcher.name} walks ${this.batter.name}`;
@@ -44,13 +58,15 @@ class AtBat {
     this.picher.hitsAllowed++;
     this.batter.hits++;
 
+    this.resetCount();
+    this.updateScoreboard();
     if (bases === 4) {
       this.pitcher.hrAllowed++;
       this.batter.homeruns++;
     }
 
     if (bases === 3) {
-      this.batter.triples++
+      this.batter.triples++;
     }
 
     if (bases === 2) {
@@ -61,10 +77,15 @@ class AtBat {
     console.log(`${this.batter} hits for ${bases} bases`);
   }
 
+  resetCount() {
+    this.balls = 0;
+    this.strikes = 0;
+  }
+
   updateScoreboard() {
-    const strikeDisplay = document.querySelector('.strikes-display');
-    const ballDisplay = document.querySelector('.balls-display');
-    const outsDisplay = document.querySelector('.outs-display');
+    const strikeDisplay = this.element.querySelector('.strikes-display');
+    const ballDisplay = this.element.querySelector('.balls-display');
+    const outsDisplay = this.element.querySelector('.outs-display');
 
     strikeDisplay.innerText = this.strikes;
     ballDisplay.innerText = this.balls;
@@ -74,4 +95,5 @@ class AtBat {
 
 // function to display balls and strikes
 
-a = new AtBat(sale, mookie);
+let ab = document.querySelector('.at-bat-box');
+ab = new AtBat(sale, mookie, ab);

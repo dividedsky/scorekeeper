@@ -49,12 +49,12 @@ class Pitcher extends Player {
   }
 
   // get inningsPitched() {
-    // return this.inningsPitched.join('.');
+  // return this.inningsPitched.join('.');
   // }
 
   get era() {
     // to convert baseball decimal: Math.floor(inningsPitches) + (thirds % 1)
-    const realIP = this.inningsPitched[0] + (this.inningsPitched[1] * 1/3)
+    const realIP = this.inningsPitched[0] + (this.inningsPitched[1] * 1 / 3);
     return (9 * this.earnedRuns / realIP).toFixed(2);
   }
 
