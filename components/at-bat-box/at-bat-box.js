@@ -51,7 +51,7 @@ class AtBat {
     this.updateScoreboard();
     this.pitcher.bbAllowed++;
     this.batter.bbs++;
-    return `${this.pitcher.name} walks ${this.batter.name}`;
+    console.log(`${this.pitcher.name} walks ${this.batter.name}`);
   }
 
   hit(bases) {

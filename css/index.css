@@ -131,9 +131,9 @@ table {
 }
 html {
   height: 100%;
+  font-size: 62.5%;
 }
 body {
-  font-size: 62.5%;
   height: 100%;
 }
 h1,
@@ -162,6 +162,7 @@ p {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 1.6rem;
 }
 .container .main-header {
   color: blue;
@@ -287,4 +288,8 @@ p {
 }
 .at-bat-box .controls button {
   margin: 0 10px;
+}
+.react-section {
+  height: 300px;
+  border: 1px solid blue;
 }
